@@ -1,4 +1,7 @@
 @import url("./pokedex.css");
+@import url("./cover.css");
+@import url("./header.css");
+@import url("./lights.css");
 
 :root {
 	--white: #fffffe;
@@ -19,7 +22,7 @@ body {
 	box-sizing: border-box;
 	font: var(--body1);
 	color: var(--white);
-	background-color: var(--secondary);
+	background-color: var(--blue);
 	min-block-size: 100vh;
 	display: flex;
 	align-items: center;
