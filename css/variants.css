@@ -1,3 +1,35 @@
 .variants {
+	padding-block-start: 1.5rem;
 	grid-area: variants;
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+
+.btn-tin-container {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+.btn-xlBlue {
+	block-size: 3.25rem;
+	inline-size: 3.25rem;
+	background-color: var(--secondary);
+	border-radius: 50%;
+	margin: 0;
+}
+
+.btn-tinYellow {
+	block-size: 0.5rem;
+	inline-size: 1.875rem;
+	background-color: #d2ab33;
+	border-radius: 2rem;
+}
+
+.btn-tinBlue {
+	block-size: 0.5rem;
+	inline-size: 1.875rem;
+	background-color: var(--secondary);
+	border-radius: 2rem;
 }

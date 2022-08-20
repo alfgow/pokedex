@@ -27,6 +27,7 @@
 .screenButtons {
 	padding: 0.875rem;
 	padding-inline-end: 0;
+	padding-inline-start: 0;
 	display: flex;
 	justify-content: space-between;
 	box-sizing: border-box;

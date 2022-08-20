@@ -9,6 +9,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/index.css">
+    <meta property="og:title" content=Pokedex - alfgow>
+    <meta property="og:site_name" content=Pokedex - alfgow>
+    <meta property="og:url" content="">
+    <meta property="og:description" content=Quién es ese Pokemon? Descúbrelo con éste Pokedex que he construído>
+    <meta property="og:type" content=website>
+    <meta property="og:image" content="./design/Pokedex.jpg">
     <title>Pokédex</title>
 </head>
 
@@ -43,11 +49,26 @@
                     </div>
                 </div>
                 <div class="actions">
-                    <div class="variants">variantes</div>
+                    <div class="variants">
+                        <div class="btn-xlBlue-container">
+                            <p class="btn-xlBlue"></p>
+                        </div>
+                        <div class="btn-tin-container">
+                            <p class="btn-tinYellow"></p>
+                            <p class="btn-tinBlue"></p>
+                        </div>
+                    </div>
                     <form role="search" id="form" class="search">
                         <input type="text" name="id" placeholder="Quién es ese Pokemon?" autocomplete="off">
                     </form>
-                    <div class="navigation">navegacion</div>
+                    <div class="navigation">
+                        <button id="next-pokemon" class="navigation-right" aria-label="Siguiente Pokemon"></button>
+                        <button id="prev-pokemon" class="navigation-left" aria-label="Pokemon Anterior"></button>
+                        <button id="next-image" class="navigation-down"
+                            aria-label="Siguiente Variante del Pokemon"></button>
+                        <button id="prev-image" class="navigation-up"
+                            aria-label="Anterior Variante del Pokemon"></button>
+                    </div>
                     <div class="description">
                         <p>Busca a un Pokemon para obtener todos sus detalles</p>
                     </div>
