@@ -3,6 +3,7 @@
 @import url("./header.css");
 @import url("./lights.css");
 @import url("./stats.css");
+@import url("./screen.css");
 
 :root {
 	--white: #fffffe;
@@ -29,6 +30,12 @@ body {
 	align-items: center;
 	justify-content: center;
 }
+
+.dbug {
+	color: black;
+	border: 1px solid var(--primary);
+}
+
 /* 
 h1 {
 	color: var(--primary);

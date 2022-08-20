@@ -8,6 +8,7 @@
 	position: absolute;
 	inset: 0;
 	z-index: 2;
+	transition: 1s transform;
 	transform-origin: right center;
 	backface-visibility: hidden;
 	border-inline-end: 0.25rem solid #ba111f;
@@ -44,7 +45,7 @@
 	padding: 1.5rem;
 	padding-block-start: 6.25rem;
 	display: flex;
-	border-inline-start: 1px solid black;
+	border-inline-start: 0.25rem solid #ba1120;
 	box-sizing: border-box;
 	border-end-end-radius: 0.5rem;
 }

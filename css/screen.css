@@ -1,0 +1,63 @@
+.screen-border {
+	padding: 1.5rem;
+	padding-block-end: 0;
+	background-color: var(--white);
+	border-radius: 0.5rem;
+	clip-path: polygon(
+		0 0,
+		100% 0,
+		100% 100%,
+		2rem 100%,
+		0 calc(100% - 2.75rem)
+	);
+}
+
+.screen-safeArea {
+	padding: 1rem;
+	background-color: var(--blue);
+	border-radius: 0.25rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	block-size: 10rem;
+	box-sizing: border-box;
+	background-size: cover;
+}
+
+.screenButtons {
+	padding: 0.875rem;
+	padding-inline-end: 0;
+	display: flex;
+	justify-content: space-between;
+	box-sizing: border-box;
+	margin: 0;
+}
+
+.screenCircles {
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
+	gap: 1rem;
+}
+
+.circles {
+	margin: 0;
+	block-size: 1rem;
+	inline-size: 1rem;
+	border-radius: 50%;
+	background-color: red;
+}
+
+.screenHam {
+	display: flex;
+	flex-direction: column;
+	gap: 0.125rem;
+}
+
+.lineButton {
+	block-size: 0.125rem;
+	inline-size: 1.375rem;
+	background-color: var(--secondary);
+}
