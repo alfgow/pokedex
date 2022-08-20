@@ -4,20 +4,28 @@
 .coverFront {
 	inline-size: inherit;
 	block-size: inherit;
-	/* background-color: var(--primary); */
-	background-color: green;
+	background-color: var(--primary);
 	position: absolute;
 	inset: 0;
 	z-index: 2;
 	transform-origin: right center;
 	backface-visibility: hidden;
+	border-inline-end: 0.25rem solid #ba111f;
+	border-end-start-radius: 0.5rem;
+	box-sizing: border-box;
+	clip-path: polygon(
+		0 4.6rem,
+		70% 3.1rem,
+		100% 3.1rem,
+		100% 100%,
+		0 100%
+	);
 }
 
 .coverBack {
 	inline-size: inherit;
 	block-size: inherit;
-	/* background-color: var(--primary); */
-	background-color: blue;
+	background-color: var(--primary);
 	position: absolute;
 	inset: 0;
 	z-index: 1;
@@ -26,4 +34,17 @@
 	transform: rotateY(-180deg);
 	transition: 1s transform;
 	transform-origin: left center;
+	clip-path: polygon(
+		0 3.1rem,
+		30% 3.1rem,
+		100% 4.75rem,
+		100% 100%,
+		0 100%
+	);
+	padding: 1.5rem;
+	padding-block-start: 6.25rem;
+	display: flex;
+	border-inline-start: 1px solid black;
+	box-sizing: border-box;
+	border-end-end-radius: 0.5rem;
 }
