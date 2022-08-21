@@ -1,4 +1,5 @@
 .description {
+	padding: 0.5rem;
 	grid-area: description;
 	background-color: var(--green);
 	border-radius: 0.5rem;
