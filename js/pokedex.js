@@ -2,6 +2,12 @@ import { getPokemon, getSpecies } from "./api.js";
 
 const $image = document.querySelector("#image");
 const $description = document.querySelector("#description");
+const $screen = document.querySelector("#screen");
+
+function load(isLoading = false) {
+	const img = isLoading ? "url(./images/loading.gif)" : "";
+	$screen.style.backgroundImage = img;
+}
 
 function setImage(image) {
 	$image.src = image;
@@ -21,9 +27,14 @@ async function findPokemon(id) {
 }
 
 async function setPokemon(id) {
+	$image.src = "";
+	load(true);
+	setTimeout(() => {
+		load(false);
+		setImage(pokemon.sprites);
+		setDescription(pokemon.species);
+	}, 500);
 	const pokemon = await findPokemon(id);
-	setImage(pokemon.sprites);
-	setDescription(pokemon.species);
 }
 
 export { setPokemon };
