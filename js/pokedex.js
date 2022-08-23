@@ -20,21 +20,36 @@ function setDescription(species) {
 	$description.textContent = descriptions.flavor_text;
 }
 
+function setDescriptionError(error) {
+	$description.textContent = error;
+	console.log(error);
+}
+
 async function findPokemon(id) {
 	const pokemon = await getPokemon(id);
+	if (pokemon === "error") {
+		$description.textContent =
+			"Hubo un error al obtener el pokemon";
+	}
 	const species = await getSpecies(id);
-	return { sprites: pokemon.sprites["front_default"], species };
+	return {
+		sprites: pokemon.sprites["front_default"],
+		species,
+		id: pokemon,
+	};
 }
 
 async function setPokemon(id) {
 	$image.src = "";
 	load(true);
+	const pokemon = await findPokemon(id);
 	setTimeout(() => {
 		load(false);
 		setImage(pokemon.sprites);
 		setDescription(pokemon.species);
 	}, 500);
-	const pokemon = await findPokemon(id);
+
+	return pokemon;
 }
 
 export { setPokemon };

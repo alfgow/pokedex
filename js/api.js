@@ -6,7 +6,7 @@ async function getPokemon(id) {
 		const pokemon = await response.json();
 		return pokemon;
 	} catch (error) {
-		return "Hubo un error al obtener el pokemon";
+		return "error";
 	}
 }
 

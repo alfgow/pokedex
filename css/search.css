@@ -11,6 +11,7 @@
 	flex-grow: 1;
 	outline: none;
 	box-sizing: border-box;
+	text-align: center;
 }
 
 .search input:focus {
