@@ -17,7 +17,9 @@ $xlBtnBlue.addEventListener("click", randomPokemon);
 async function randomPokemon() {
 	const id = Math.floor(Math.random() * 896) + 1;
 	activePokemon = await setPokemon(id);
-	$idText.value = id;
+	setTimeout(() => {
+		$idText.value = id;
+	}, 500);
 }
 
 async function handleSubmit(event) {

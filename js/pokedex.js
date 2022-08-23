@@ -32,8 +32,23 @@ async function findPokemon(id) {
 			"Hubo un error al obtener el pokemon";
 	}
 	const species = await getSpecies(id);
+	const sprites = [pokemon.sprites.front_default];
+
+	for (const item in pokemon.sprites) {
+		if (
+			pokemon.sprites[item] &&
+			item !== "front_default" &&
+			item !== "other" &&
+			item !== "versions"
+		) {
+			sprites.push(pokemon.sprites[item]);
+		}
+	}
+
+	console.log(sprites);
+
 	return {
-		sprites: pokemon.sprites["front_default"],
+		sprites,
 		species,
 		id: pokemon,
 	};
@@ -45,7 +60,7 @@ async function setPokemon(id) {
 	const pokemon = await findPokemon(id);
 	setTimeout(() => {
 		load(false);
-		setImage(pokemon.sprites);
+		setImage(pokemon.sprites[0]);
 		setDescription(pokemon.species);
 	}, 500);
 
