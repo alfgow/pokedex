@@ -45,8 +45,6 @@ async function findPokemon(id) {
 		}
 	}
 
-	console.log(sprites);
-
 	return {
 		sprites,
 		species,
@@ -67,4 +65,4 @@ async function setPokemon(id) {
 	return pokemon;
 }
 
-export { setPokemon };
+export { setPokemon, setImage };
