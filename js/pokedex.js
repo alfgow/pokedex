@@ -1,4 +1,5 @@
 import { getPokemon, getSpecies } from "./api.js";
+import { createChart } from "./charts.js";
 
 const $image = document.querySelector("#image");
 const $description = document.querySelector("#description");
@@ -6,6 +7,7 @@ const $screen = document.querySelector("#screen");
 const $light = document.querySelector("#light");
 const $stopSpeech = document.querySelector("#stopSpeech");
 const $stopSpeech2 = document.querySelector("#stopSpeech2");
+let activeChart = null;
 
 $stopSpeech.addEventListener("click", () => {
 	const synth = window.speechSynthesis;
@@ -21,12 +23,12 @@ function load(isLoading = false) {
 	$screen.style.backgroundImage = img;
 }
 
-function speech(text, changePokemon) {
+function speech(text) {
 	const utterance = new SpeechSynthesisUtterance(text);
-	if (changePokemon === "y") {
-		const synth = window.speechSynthesis;
-		synth.cancel();
-	}
+
+	const synth = window.speechSynthesis;
+	synth.cancel();
+
 	utterance.lang = "es-US";
 	speechSynthesis.speak(utterance);
 	$light.classList.add("is-animated");
@@ -39,12 +41,12 @@ function setImage(image) {
 	$image.src = image;
 }
 
-function setDescription(species, changePokemon) {
+function setDescription(species) {
 	const descriptions = species.flavor_text_entries.find(
 		(flavor) => flavor.language.name === "es"
 	);
 	$description.textContent = descriptions.flavor_text;
-	speech(`${species.name}. ${descriptions.flavor_text}`, changePokemon);
+	speech(`${species.name}. ${descriptions.flavor_text}`);
 }
 
 function setDescriptionError(error) {
@@ -59,6 +61,7 @@ async function findPokemon(id) {
 	}
 	const species = await getSpecies(id);
 	const sprites = [pokemon.sprites.front_default];
+	const stats = pokemon.stats.map((item) => item.base_stat);
 
 	for (const item in pokemon.sprites) {
 		if (
@@ -72,6 +75,7 @@ async function findPokemon(id) {
 	}
 
 	return {
+		stats,
 		sprites,
 		species,
 		id: pokemon,
@@ -79,14 +83,18 @@ async function findPokemon(id) {
 	};
 }
 
-async function setPokemon(id, changePokemon) {
+async function setPokemon(id) {
 	$image.src = "";
 	load(true);
 	const pokemon = await findPokemon(id);
 	setTimeout(() => {
 		load(false);
 		setImage(pokemon.sprites[0]);
-		setDescription(pokemon.species, changePokemon);
+		setDescription(pokemon.species);
+		if (activeChart instanceof Chart) {
+			activeChart.destroy();
+		}
+		activeChart = createChart(pokemon.stats, pokemon.name);
 	}, 500);
 
 	return pokemon;

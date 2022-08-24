@@ -1,6 +1,9 @@
 .stats {
+	display: flex;
 	background-color: var(--secondary);
 	padding: 1rem;
 	border-radius: 0.5rem;
 	flex-grow: 1;
+	justify-content: center;
+	align-items: center;
 }
