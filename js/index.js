@@ -20,8 +20,9 @@ $nextImg.addEventListener("click", handleNextImage);
 $prevImg.addEventListener("click", handlePrevImage);
 
 async function randomPokemon() {
+	const changePokemon = "y";
 	const id = Math.floor(Math.random() * 896) + 1;
-	activePokemon = await setPokemon(id);
+	activePokemon = await setPokemon(id, changePokemon);
 	setTimeout(() => {
 		$idText.value = id;
 	}, 500);
@@ -39,17 +40,19 @@ async function handleNextPokemon() {
 		activePokemon === null || activePokemon.id.id === 896
 			? 1
 			: activePokemon.id.id + 1;
-	activePokemon = await setPokemon(id);
+	const changePokemon = "y";
+	activePokemon = await setPokemon(id, changePokemon);
 
 	$idText.value = id;
 }
 
 async function handlePrevPokemon() {
+	const changePokemon = "y";
 	const id =
 		activePokemon === null || activePokemon.id.id === 1
 			? 896
 			: activePokemon.id.id - 1;
-	activePokemon = await setPokemon(id);
+	activePokemon = await setPokemon(id, changePokemon);
 	const $idText = document.querySelector("#id");
 	$idText.value = id;
 }

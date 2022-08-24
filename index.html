@@ -19,11 +19,11 @@
 </head>
 
 <body>
-    <main class="pokedex" tabindex="0" id="pokedex">
+    <main class="pokedex is-open" tabindex="0" id="pokedex">
         <section class="pokedexMain" aria-label="Pokemon General Info">
             <div class="header-shadow">
                 <div class="header">
-                    <span class="light is-big is-sky "></span>
+                    <span class="light is-big is-sky " id="light"></span>
                     <span class="light is-red">Luz 2</span>
                     <span class="light is-yellow">Luz 3</span>
                     <span class="light is-green">Luz 4</span>
@@ -54,8 +54,8 @@
                             <p class="btn-xlBlue" id="btn-xlBlue">↭</p>
                         </div>
                         <div class="btn-tin-container">
-                            <p class="btn-tinYellow"></p>
-                            <p class="btn-tinBlue"></p>
+                            <p class="btn-tinYellow" id="stopSpeech"></p>
+                            <p class="btn-tinBlue" id="stopSpeech2"></p>
                         </div>
                     </div>
                     <form role="search" id="form" name="form" class="search">
