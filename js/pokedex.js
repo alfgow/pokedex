@@ -60,7 +60,7 @@ async function findPokemon(id) {
 			"Hubo un error al obtener el pokemon";
 	}
 	const species = await getSpecies(id);
-	const sprites = [pokemon.sprites.front_default];
+	const sprites = [pokemon.sprites];
 	const stats = pokemon.stats.map((item) => item.base_stat);
 
 	for (const item in pokemon.sprites) {
@@ -100,4 +100,4 @@ async function setPokemon(id) {
 	return pokemon;
 }
 
-export { setPokemon, setImage };
+export { setImage, setPokemon };
