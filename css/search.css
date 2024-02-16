@@ -12,6 +12,7 @@
 	outline: none;
 	box-sizing: border-box;
 	text-align: center;
+	text-transform: lowercase;
 }
 
 .search input:focus {
