@@ -32,12 +32,13 @@ async function handleSubmit(event) {
 	event.preventDefault();
 	const form = new FormData($form);
 	const id = form.get("id");
+	console.log(id);
 	activePokemon = await setPokemon(id);
 }
 
 async function handleNextPokemon() {
 	const id =
-		activePokemon === null || activePokemon.id.id === 896
+		activePokemon === null || activePokemon.id.id === 1025
 			? 1
 			: activePokemon.id.id + 1;
 	activePokemon = await setPokemon(id);
